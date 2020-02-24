@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block title %}
+    Medium
+{% endblock %}
+
+{% block diff %}
+    <h5 style="margin-top: 8px; color: orange" class="col-sm-1">Medium</h5>
+{% endblock %}
+
+{% block body %}
+        <div class="container-fluid" style="text-align: center">
+            <form action="/medium" method="post" onSubmit="return check()">
+                <h5 id="errormessage" style="color: red"></h5>
+                <h5 id="success_message" style="color: green"></h5>
+                <input type="text" class="form-control col-sm-2 offset-5" placeholder="Guess" style="text-align: center" id="guess" autocomplete="off">
+                <br>
+                <input type="submit" class="form-control col-sm-2  btn btn-primary" id="submit_button">
+            </form>
+        </div>
+        <div class="container-fluid" style="text-align: center">
+            <form action="/medium" method="get">
+                <input type="submit" class="form-control col-sm-2 btn btn-primary" value="Skip" style="background-color: red" id="skip">
+            </form>
+        </div>
+        <div class="container-fluid" style="text-align: center">
+            <form action="/medium" method="get">
+                <input type="submit" class="form-control col-sm-2 btn btn-primary" value="Next" style="background-color: green" hidden="true" id="next">
+            </form>
+        </div>
+        <br>
+        <div class="container-fluid" style="text-align: center">
+            <input type="button" class="form-control col-sm-1 btn btn-primary" value="First Hint" style="background-color: green" onclick="revealFirst()" id="first_hint_b">
+        </div>
+        <div class="container-fluid" style="text-align: center">
+            <input type="button" class="form-control col-sm-1 btn btn-primary" value="Second Hint" style="background-color: orange" onclick="revealSecond()" id="second_hint_b">
+        </div>
+        <div class="container-fluid" style="text-align: center">
+            <input type="button" class="form-control col-sm-1 btn btn-primary" value="Third Hint" style="background-color: red" onclick="revealThird()" id="third_hint_b">
+        </div>
+{% endblock %}
